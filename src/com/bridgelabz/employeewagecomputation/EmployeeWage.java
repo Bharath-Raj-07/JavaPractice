@@ -5,10 +5,12 @@ public class EmployeeWage{
     public static final int Full_time=2;
     public static final int PHRate=20;
     public static final int Num_work_days=2;
+    public static final int Max_hp_month=10;
     public static void main(String[] args){
-        int empHrs=0,empWage=0,totempWage=0;
-        for(int day=0;day<Num_work_days;day++)
+        int empHrs=0,totempHrs=0,totworkdays=0;
+        while(totempHrs <= Max_hp_month && totworkdays < Num_work_days)
         {
+            totworkdays++;
             int empCheck;
             empCheck = (int) (Math.floor(Math.random() * 10) % 3);
             switch (empCheck)
@@ -22,10 +24,10 @@ public class EmployeeWage{
                 default:
                     empHrs = 0;
             }
-            empWage = empHrs * PHRate;
-            totempWage+=empWage;
-            System.out.println("Emp Wage: "+empWage);
+            totempHrs += empHrs;
+            System.out.println("Day#: "+totworkdays+" Emp Hr: "+empHrs);
         }
+        int totempWage=totempHrs*PHRate;
         System.out.println("Total Emp Wage: "+totempWage);
     }
 }
